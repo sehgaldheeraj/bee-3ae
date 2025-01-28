@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-path.join(__dirname, "db.json");
+//path.join(__dirname, "db.json");
 fs.writeFile("text.txt", "Hello World", (err, data) => {
   if (err) {
     console.log(err);
