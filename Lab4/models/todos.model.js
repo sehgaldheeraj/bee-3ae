@@ -36,7 +36,7 @@ class Todo {
       }
     });
   };
-  // static updateTodo = () => {};
-  // static deleteTodo = () => {};
+  // static updateTodo = (id, status) => {};
+  // static deleteTodo = (id) => {};
 }
 module.exports = Todo;

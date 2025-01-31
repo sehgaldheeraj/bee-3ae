@@ -1,13 +1,16 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const Todo = require("./models/todos.model");
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 /**
  * TODO 1: GET base view
  *
  */
+//'/sehgaldheeraj/bee-3ae'
 app.get("/", async (req, res) => {
   try {
     const todos = await Todo.getTodos();
@@ -34,6 +37,12 @@ app.post("/todos", async (req, res) => {
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
+});
+
+app.patch("/todos/:id", (req, res) => {
+  const { status } = req.body;
+  const { id } = req.params;
+  //await Todo.updateTodo(id, status);
 });
 /**
  * 200 - 299: Success codes
