@@ -1,0 +1,15 @@
+1. show dbs
+2. create a new DB
+    use <db_name>
+3. show all collections
+    show collections
+4. create a new collections
+CRUD
+1. Insert a document(s)
+    db.<collection>.insertOne({})   
+    db.<collection>.insertMany([{},{},...])
+2. Read documents
+    db.<collection>.find()          | SELECT * from <Table>   
+
+ --comparison operators
+  {key: {$lt: value}} : lt, gt, lte, gte, eq       
