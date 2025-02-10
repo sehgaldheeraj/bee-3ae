@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css"></link>
     <title>Document</title>
   </head>
   <body>
     <h1>Todo App</h1>
-    <a href="/addTodo">Add a todo</a>
+    <a href="/addTodo">Add new Todo</a>
     <h3>Your Todos</h3>
     <ul>
-      <% todos.forEach(todo => { %>
-      <a href="/updateTodo/<%= todo.id %>"
-        ><li><%= todo.name %> - <%= todo.type %> - <%= todo.status %></li></a
-      >
-      <% }); %>
+        <% todos.forEach(todo => { %>
+            <li><%= todo.name %> - <%= todo.type %> - <%= todo.status %></li>
+        <% }); %>
     </ul>
   </body>
 </html>

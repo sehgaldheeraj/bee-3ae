@@ -1,15 +1,9 @@
-1. show dbs
-2. create a new DB
-    use <db_name>
-3. show all collections
-    show collections
-4. create a new collections
-CRUD
-1. Insert a document(s)
-    db.<collection>.insertOne({})   
-    db.<collection>.insertMany([{},{},...])
-2. Read documents
-    db.<collection>.find()          | SELECT * from <Table>   
+3. Update a document
+    db.<coll>.updateOne({}, {$set: {key: value}})
+    db.<coll>.updateMany({}, {$set: {key: value}})
+4. Delete a document
+    db.<coll>.deleteOne({qty: {$lt: 60}})
+    db.<coll>.deleteMany({})
 
- --comparison operators
-  {key: {$lt: value}} : lt, gt, lte, gte, eq       
+5. Delete a collection
+    db.<coll>.drop()    
