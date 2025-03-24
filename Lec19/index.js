@@ -39,22 +39,7 @@ app.post("/register", async (req, res) => {
 });
 //login
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    const user = await User.findOne({ email: email });
-    if (!user) {
-      return res.status(404).send({ msg: "Kindly register" });
-    }
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      return res.status(401).send({ msg: "Invalid credentials" });
-    }
-    //res.cookie("userIdCard", user);
-    req.session.user = user;
-    res.status(200).send({ msg: "Login successful" });
-  } catch (err) {
-    res.status(500).send({ msg: err.message });
-  }
+  passport.authenticate("local");
 });
 
 function isAuthenticated(req, res, next) {
