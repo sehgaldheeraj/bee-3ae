@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const memoryStore = require("memorystore")(session);
 
 const User = require("./models/user.model");
+const passport = require("./authentication/passport");
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,9 @@ app.use(
     }),
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.authenticate("session"));
 
 const URI = "mongodb://localhost:27017/ecomAE";
 //POST /register
@@ -35,7 +39,7 @@ app.post("/register", async (req, res) => {
 });
 //login
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
   try {
     const user = await User.findOne({ email: email });
     if (!user) {
