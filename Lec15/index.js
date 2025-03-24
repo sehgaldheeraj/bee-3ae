@@ -16,7 +16,8 @@ app.use("/v1", routes);
  * 400 - 499: Client side error codes
  * 500 - bey: Server side error codes
  */
-const URL = "";
+const URL = "mongodb://localhost:27017/todos.db";
+
 async function connection() {
   try {
     await mongoose.connect(URL);
